@@ -1,4 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Env
+.venv/
 .env
-alembic
-alembic.ini
-.venv
+
+# Alembic cache
+alembic/__pycache__/
+
+# OS
+.DS_Store
+
