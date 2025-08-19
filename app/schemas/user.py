@@ -8,8 +8,11 @@ class UserCreate(BaseModel):
 
 
 class OtpVerify(BaseModel):
+    email : EmailStr
     otp : str
 
+class ForgotPassword(BaseModel):
+    email : EmailStr
 
 
 class PasswordReset(BaseModel):
@@ -31,4 +34,4 @@ class UserResponse(BaseModel):
 
 
     class Config:
-        orm_mode = True
+        from_attributes = True

@@ -8,14 +8,14 @@ def send_otp(received_email, otp):
     # create a connection
     server = None
     try:
-        server = smtplib.SMTP("smtp.mail.com", 587)
-        server.serverttls()
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
         server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
         
         # create email message
 
         msg = EmailMessage()
-        msg["sub"] = "Otp For Email Verification"
+        msg["Subject"] = "Otp For Email Verification"
         msg["From"] = EMAIL_USERNAME
         msg["To"] = received_email
         msg.set_content(f"Your OTP code is: {otp}\n\nThis code will expire in 10 minutes.\nIf you didn't request this code, please ignore this email.")
@@ -34,3 +34,4 @@ def send_otp(received_email, otp):
                 server.quit()
             except:
                 pass
+            
